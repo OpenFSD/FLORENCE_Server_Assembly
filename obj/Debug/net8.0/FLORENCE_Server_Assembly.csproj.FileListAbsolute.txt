@@ -1,0 +1,4 @@
+C:\Users\Legel.DESKTOP-RKOK0RG\source\repos\FLORENCE_Server_Assembly\obj\Debug\net8.0\FLORENCE_Server_Assembly.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Legel.DESKTOP-RKOK0RG\source\repos\FLORENCE_Server_Assembly\obj\Debug\net8.0\FLORENCE_Server_Assembly.AssemblyInfoInputs.cache
+C:\Users\Legel.DESKTOP-RKOK0RG\source\repos\FLORENCE_Server_Assembly\obj\Debug\net8.0\FLORENCE_Server_Assembly.AssemblyInfo.cs
+C:\Users\Legel.DESKTOP-RKOK0RG\source\repos\FLORENCE_Server_Assembly\obj\Debug\net8.0\FLORENCE_Server_Assembly.csproj.CoreCompileInputs.cache
