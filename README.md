@@ -1,5 +1,5 @@
 # FLORENCE: Server Assembly For Full Stack Development.
-
+Server Assembly For Full Stack Development.
 
 ## Server, Buffer and Networking For Full Stack Development
 - Architecture.PNG => https://drive.google.com/file/d/1AzNi2YrukRCVLelxfj8uvzhFDI4ytWBs/view?usp=sharing
@@ -15,13 +15,18 @@
 - Version 17.10.5
 
 ## Dependencies
-### Server Dynamic Link Library .DLL
- - https://
+### Server Dynamic Link Library
+ - https://github.com/OpenFSD/Server_DLL
 
-### WriteEnableWait .DLL
- - https://
+### WriteEnableForStacks
+ - https://github.com/OpenFSD/WriteEnableForStacks
 
-### ConcurrentQueLauncher .DLL
- - https://
-   
+### WaitLaunchConcurrentThread
+ - https://github.com/OpenFSD/WaitLaunchConcurrentThread
+
+### Valve Software
+- https://github.com/ValveSoftware/GameNetworkingSockets
+- https://github.com/ValveSoftware/GameNetworkingSockets/blob/master/BUILDING.md
+
+
 ## Development History
