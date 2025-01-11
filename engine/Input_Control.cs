@@ -19,56 +19,6 @@ namespace Server_Assembly.In
             isSelected_PraiseEventId = new bool[numberOfPraises];
         }
 
-        public void CheckBufferAnomalyInFlagArray()
-        {
-            for (int praiseEventId = 0; praiseEventId < numberOfPraises; praiseEventId++)
-            {
-                switch (praiseEventId)
-                {
-                    case 0:
-                        if (((Florence.IO_Buffers.Library.Get_HostServer().GetData()..GetPlayer().
-                            .GetClient().GetData().GetBuffer_BackInputDouble().GetPlayer().GetMousePos().X != Framework.GetClient().GetData().GetThirdInputBuffer().GetPlayer().GetMousePos().X)
-                            || (Framework.GetClient().GetData().GetBuffer_BackInputDouble().GetPlayer().GetMousePos().Y != Framework.GetClient().GetData().GetThirdInputBuffer().GetPlayer().GetMousePos().Y))
-                        {
-                            isSelected_PraiseEventId[praiseEventId] = true;
-                        }
-                        break;
-
-                    case 1:
-                        if (Framework.GetClient().GetData().GetBuffer_BackInputDouble().GetPlayer().GetPlayerPosition() != Framework.GetClient().GetData().GetThirdInputBuffer().GetPlayer().GetPlayerPosition())
-                        {
-                            isSelected_PraiseEventId[praiseEventId] = true;
-                        }
-                        break;
-
-                    case 2:
-                        break;
-
-                    default:
-                        break;
-                }
-            }
-        }
-
-        public void GenerateStackOfInputActions()
-        {
-            
-            for (int praiseEventId = 0; praiseEventId < numberOfPraises; praiseEventId++)
-            {
-                if (isSelected_PraiseEventId[praiseEventId] == true)
-                {
-                    Framework.GetClient().GetData().SetThirdInputBuffer(new Server_Assembly.Input());
-                    SelectSetIntputSubset(praiseEventId);
-                    LoadValuesInToInputSubset(praiseEventId);
-                    Framework.GetClient().GetData().GetData_Control().PushToStackOfInputActions(
-                        Framework.GetClient().GetData().GetStackOfInputActions(),
-                        Framework.GetClient().GetData().GetThirdInputBuffer()
-                    );
-                    Framework.GetClient().GetData().GetData_Control().SetFlag_InputStackLoaded(true);
-                    isSelected_PraiseEventId[praiseEventId] = false;
-                }
-            }
-        }
         private void LoadValuesInToInputSubset(
             int praiseEventId
         )
