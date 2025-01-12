@@ -23,7 +23,7 @@
             while (execute == null) { /* Wait while is created */ }
             execute.Initialise_Control((ushort)global.Get_NumCores(), global);
 
-            System.Console.WriteLine("FLORENCE: Client");
+            System.Console.WriteLine("Server_Assembly: Client");
         }
 
         public Server_Assembly.Algorithms GetAlgorithms()

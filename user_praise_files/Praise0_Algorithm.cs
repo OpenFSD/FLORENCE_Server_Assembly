@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FLORENCE.Frame.Serv.Algo.UserAlg
+namespace Server_Assembly.Frame.Serv.Algo.UserAlg
 {
     public class Praise0_Algorithm
     {

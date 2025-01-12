@@ -21,7 +21,7 @@ namespace Server_Assembly
             networkingServer = new Server_Assembly.Networking();
             while (networkingServer == null) { /* wait untill created */ }
 
-            System.Console.WriteLine("FLORENCE: Framework");//TEST
+            System.Console.WriteLine("Server_Assembly: Framework");//TEST
         }
 
         static public Server_Assembly.Server GetGameServer()

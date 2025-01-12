@@ -21,26 +21,31 @@ namespace Server_Assembly
         {
             Framework.GetGameServer().GetExecute().GetExecute_Control().SetConditionCodeOfThisThreadedCore(threadId);
 
-            //while (Framework.GetServer().GetExecute().GetExecute_Control().GetFlag_SystemInitialised((short)Framework.GetServer().GetGlobal().Get_NumCores()) != false)
-            //{
+            while (Framework.GetGameServer().GetExecute().GetExecute_Control().GetFlag_SystemInitialised((ushort)Framework.GetGameServer().GetGlobal().Get_NumCores()) != false)
+            {
                 // wait untill ALL threads initalised in preperation of system init.
-            //}
+            }
             while (true)
             {
-                switch (Framework.GetGameServer().GetAlgorithms().GetIO_ListenRespond().GetIO_Control().GetFLAG_STATE_ioThread())
+                switch (Server_Assembly.Framework.GetGameServer().GetAlgorithms().GetIO_ListenRespond().GetIO_Control().GetFLAG_STATE_ioThread())
                 {
                     case true:
                     {
-                        
+
                             //TODO
-                        //Networking.CreateAndSendNewMessage();
-                        Framework.GetGameServer().GetAlgorithms().GetIO_ListenRespond().GetIO_Control().SetFLAG_STATE_ioThread(false);
+                            //Networking.CreateAndSendNewMessage();
+                            Server_Assembly.Framework.GetGameServer().GetAlgorithms().GetIO_ListenRespond().GetIO_Control().SetFLAG_STATE_ioThread(false);
                         break;
                     }
                     case false:
                     {
                             Florence.Stack_IO.Stack_InputPraise.Write_Start(0);
                             Networking.CopyPayloadFromMessage();
+                            Framework.GetGameServer().GetData().Flip_InBufferToWrite();
+                            //Florence.IO_Buffers.Library.Push_Stack_InputPraises(
+
+                            //    Framework.GetGameServer().GetData().GetBuffer_BackInputDouble()
+                            //);
                             //push to stack
                             Florence.IO_Buffers.Library.Set_Ack_InputAction_Capture(true);
                             Florence.Stack_IO.Stack_InputPraise.Write_End(0);

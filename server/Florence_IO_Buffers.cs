@@ -18,29 +18,29 @@ namespace Florence.IO_Buffers
 {
     public static class Library
     {
-    //Get
         [DllImport("Server_DLL.dll", CharSet = CharSet.Unicode)]
         public static extern void Create_HostingServer();
 
         [DllImport("Server_DLL.dll", CharSet = CharSet.Unicode)]
-        public static extern void PopFromStackOfOutput(
-            Server_Assembly.Output outputDoubleBuffer,
-            List<Server_Assembly.Output> stack_OutputRecieves
+        public static extern void Pop_Stack_OutputPraise(
+            Server_Assembly.Outputs.Output buffer_Back_OutputDouble,
+            List<Server_Assembly.Outputs.Output> stack_OutputPraise
         );
 
         [DllImport("Server_DLL.dll", CharSet = CharSet.Unicode)]
-        public static extern void PushToStackOfInputPraises(
-            List<Server_Assembly.Input> stack_InputActions,
-            Server_Assembly.Input inputDoubleBuffer
+        public static extern void Push_Stack_InputPraises(
+            List<Server_Assembly.Inputs.Input> stack_InputPraises,
+            Server_Assembly.Inputs.Input buffer_Back_InputDouble
         );
 
         [DllImport("Server_DLL.dll", CharSet = CharSet.Unicode)]
         public static extern bool Get_Ack_InputAction_Capture();
 
+    //get
         [DllImport("Server_DLL.dll", CharSet = CharSet.Unicode)]
         public static extern Server Get_HostServer();
-
-    //Set
+    
+    //set
         [DllImport("Server_DLL.dll", CharSet = CharSet.Unicode)]
         public static extern void Set_Ack_InputAction_Capture(bool value);
     }

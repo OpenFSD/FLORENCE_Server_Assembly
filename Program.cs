@@ -6,7 +6,7 @@
 
         public static void Main(String[] args)
         {
-            System.Console.WriteLine("FLORENCE START");
+            System.Console.WriteLine("Server_Assembly START");
 
             serverAssembly = new Server_Assembly.Framework();
             while (serverAssembly == null) { /* wait untill created */ }

@@ -1,71 +1,41 @@
 ﻿
+using Florence.Stack_IO;
+
 namespace Server_Assembly
 {
     public class Data
     {
         static private Server_Assembly.Data_Control data_Control;
+        static private Server_Assembly.Game_Instance gameInstance;
+        static private Server_Assembly.game_Instance.Settings settings;
+        //byffers
+        static private Server_Assembly.Inputs.Input_Instance input_Instnace;
+        static private Server_Assembly.Outputs.Output_Instance output_Instnace;
+        //stacks        
+        static private List<Server_Assembly.Inputs.Input> stack_InputPraise;
+        static private List<Server_Assembly.Outputs.Output> stack_OutputPraise;
+        //praises
+        static private Server_Assembly.Praise_Files.User_I user_IO;
 
-        static private Server_Assembly.Game_Instance game_Instance;
-
-        static private Server_Assembly.Input empty_InputBuffer;
-        static private Server_Assembly.Output empty_OutputBuffer;
-
-        static private Server_Assembly.Input[] inputDoubleBuffer;
-        static private Server_Assembly.Output[] outputDoubleBuffer;
-        
-        static private List<Server_Assembly.Input> stack_InputActions;
-        static private List<Server_Assembly.Output> stack_OutputRecieves;
-
-        static private Server_Assembly.User_I user_IO;
-
-        static private bool state_Buffer_Input_ToWrite;
-        static private bool state_Buffer_Output_ToWrite;
-        static private bool state_Buffer_TransmitInput_ToWrite;
-        static private bool state_Buffer_RecieveOutput_ToWrite;
+        static private bool state_Buffer_InputPraise_SideToWrite;
+        static private bool state_Buffer_OutputPraise_SideToWrite;
 
         public Data()
         {
             data_Control = null;
+            gameInstance = new Server_Assembly.Game_Instance();
+            settings = new Server_Assembly.game_Instance.Settings();
 
-            empty_InputBuffer = new Server_Assembly.Input();
-            while (empty_InputBuffer == null) { /* Wait while is created */ }
-            empty_InputBuffer.InitialiseControl();
+            input_Instnace = new Server_Assembly.Inputs.Input_Instance();
+            output_Instnace = new Server_Assembly.Outputs.Output_Instance();
 
-            empty_OutputBuffer = new Server_Assembly.Output();
-            while (empty_OutputBuffer == null) { /* Wait while is created */ }
-            empty_OutputBuffer.InitialiseControl();
-
-            inputDoubleBuffer = new Server_Assembly.Input[2];
-            for (byte index = 0; index < 2; index++)
-            {
-                inputDoubleBuffer[index] = empty_InputBuffer;
-                while (inputDoubleBuffer[index] == null) { /* Wait while is created */ }
-            }
-
-            outputDoubleBuffer = new Server_Assembly.Output[2];
-            for (byte index = 0; index < 2; index++)
-            {
-                outputDoubleBuffer[index] = empty_OutputBuffer;
-                while (outputDoubleBuffer == null) { /* Wait while is created */ }
-            }
-
-            stack_InputActions = new List<Server_Assembly.Input>();
-            while (stack_InputActions == null) { /* Wait while is created */ }
-            stack_InputActions.ElementAt(0).Equals(empty_InputBuffer);
-
-            stack_OutputRecieves = new List<Server_Assembly.Output>();
-            while (stack_OutputRecieves == null) { /* Wait while is created */ }
-            stack_OutputRecieves.ElementAt(0).Equals(empty_OutputBuffer);
-
-            user_IO = new Server_Assembly.User_I();
+            user_IO = new Server_Assembly.Praise_Files.User_I();
             while (user_IO == null) { /* Wait while is created */ }
 
-            state_Buffer_Input_ToWrite = true;
-            state_Buffer_Output_ToWrite = false;
-            state_Buffer_TransmitInput_ToWrite = true;
-            state_Buffer_RecieveOutput_ToWrite = false;
-
-            System.Console.WriteLine("FLORENCE: Data");
+            state_Buffer_InputPraise_SideToWrite = true;
+            state_Buffer_OutputPraise_SideToWrite = false;
+         
+            System.Console.WriteLine("Server_Assembly: Data");
         }
 
         public Int16 BoolToInt16(bool value)
@@ -90,19 +60,11 @@ namespace Server_Assembly
 
         public void Flip_InBufferToWrite()
         {
-            state_Buffer_Input_ToWrite = !state_Buffer_Input_ToWrite;
+            state_Buffer_InputPraise_SideToWrite = !state_Buffer_InputPraise_SideToWrite;
         }
         public void Flip_OutBufferToWrite()
         {
-            state_Buffer_Output_ToWrite = !state_Buffer_Output_ToWrite;
-        }
-        public void Flip_Buffer_TransmitInput_ToWrite()
-        {
-            state_Buffer_TransmitInput_ToWrite = !state_Buffer_TransmitInput_ToWrite;
-        }
-        public void Flip_Buffer_RecieveOutput_ToWrite()
-        {
-            state_Buffer_RecieveOutput_ToWrite = !state_Buffer_RecieveOutput_ToWrite;
+            state_Buffer_OutputPraise_SideToWrite = !state_Buffer_OutputPraise_SideToWrite;
         }
 
         public Server_Assembly.Data_Control GetData_Control()
@@ -110,64 +72,43 @@ namespace Server_Assembly
             return data_Control;
         }
 
-        public Server_Assembly.Input GetEmptyInput()
+        public Server_Assembly.Game_Instance GetGame_Instance()
         {
-            return empty_InputBuffer;
+            return gameInstance;
         }
-        public Server_Assembly.Output GetEmptyOutput()
+        public Server_Assembly.Inputs.Input_Instance GetInput_Instnace()
         {
-            return empty_OutputBuffer;
+            return input_Instnace;
         }
-
-        public bool GetState_Buffer_Input_ToWrite()
+        public Server_Assembly.Outputs.Output_Instance GetOutput_Instnace()
         {
-            return state_Buffer_Input_ToWrite;
+            return output_Instnace;
         }
-        public bool GetState_Buffer_Output_ToWrite()
+        public bool GetState_Buffer_InputPraise_SideToWrite()
         {
-            return state_Buffer_Output_ToWrite;
+            return state_Buffer_InputPraise_SideToWrite;
         }
-        public bool GetState_Buffer_TransmitInput_ToWrite()
+        public bool GetState_Buffer_OutputPraise_SideToWrite()
         {
-            return state_Buffer_TransmitInput_ToWrite;
-        }
-        public bool GetState_Buffer_RecieveOutput_ToWrite()
-        {
-            return state_Buffer_RecieveOutput_ToWrite;
+            return state_Buffer_OutputPraise_SideToWrite;
         }
 
-        public Server_Assembly.Input GetBuffer_FrontInputDouble()
+        public Server_Assembly.game_Instance.Settings GetSettings()
         {
-            return inputDoubleBuffer[BoolToInt16(GetState_Buffer_Input_ToWrite())];
+            return settings;
         }
-        public Server_Assembly.Input GetBuffer_BackInputDouble()
+        public List<Server_Assembly.Inputs.Input> GetStack_InputPraise()
         {
-            return inputDoubleBuffer[BoolToInt16(!GetState_Buffer_Input_ToWrite())];
+            return stack_InputPraise;
         }
-
-        public List<Server_Assembly.Input> GetStackOfInputActions()
+        public List<Server_Assembly.Outputs.Output> GetStack_OutputsPraise()
         {
-            return stack_InputActions;
-        }
-
-        public List<Server_Assembly.Output> GetStackOfOutputsRecieved()
-        {
-            return stack_OutputRecieves;
+            return stack_OutputPraise;
         }
 
-        public Server_Assembly.User_I GetUserIO()
+        public Server_Assembly.Praise_Files.User_I GetUserIO()
         {
             return user_IO;
-        }
-
-        public void SetInputBuffer(Server_Assembly.Input value)
-        {
-            inputDoubleBuffer[BoolToInt16(Florence.IO_Buffers.Library.Get_HostServer().GetData().GetState_Buffer_Input_ToWrite())] = value;
-        }
-
-        public void SetOutputBuffer(Server_Assembly.Output value)
-        {
-            outputDoubleBuffer[BoolToInt16(Florence.IO_Buffers.Library.Get_HostServer().GetData().GetState_Buffer_Output_ToWrite())] = value;
         }
     }
 }

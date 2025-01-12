@@ -1,12 +1,11 @@
-﻿//using Server_Assembly.In;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Server_Assembly
+namespace Server_Assembly.Praise_Files
 {
     public class User_I
     {

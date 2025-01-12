@@ -1,6 +1,4 @@
-﻿using Server_Assembly.In;
-using Server_Assembly.Out.Gfx;
-using OpenTK.Mathematics;
+﻿using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using System;
 using System.Collections.Generic;
@@ -9,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Server_Assembly
+namespace Server_Assembly.Inputs
 {
     public class Input
     {
-        static private Server_Assembly.In.Input_Control input_Control;
-        private Server_Assembly.In.Player player;
+        static private Server_Assembly.Inputs.Input_Control input_Control;
+        static private Server_Assembly.game_Instance.Player player;
         static private Object praiseInputBuffer_Subset;
 
         static private UInt16 praiseEventId;
@@ -29,15 +27,15 @@ namespace Server_Assembly
 
             praiseInputBuffer_Subset = null;
 
-            player = new Server_Assembly.In.Player();
+            player = new Server_Assembly.game_Instance.Player();
             while (player == null) { /* Wait while is created */ }
 
-            System.Console.WriteLine("FLORENCE: Input");
+            System.Console.WriteLine("Server_Assembly: Input");
         }
 
         public void InitialiseControl() 
         {
-            input_Control = new Server_Assembly.In.Input_Control();
+            input_Control = new Server_Assembly.Inputs.Input_Control();
             while (input_Control == null) { /* Wait while is created */ }
         }
 
@@ -46,12 +44,12 @@ namespace Server_Assembly
             return praiseInputBuffer_Subset;
         }
 
-        public Server_Assembly.In.Input_Control GetInputControl()
+        public Server_Assembly.Inputs.Input_Control GetInputControl()
         {
             return input_Control;
         }
 
-        public Server_Assembly.In.Player GetPlayer() 
+        public Server_Assembly.game_Instance.Player GetPlayer() 
         { 
             return player; 
         }

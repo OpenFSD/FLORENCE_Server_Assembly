@@ -10,7 +10,7 @@
             //gameAlgorithms = new Server_Assembly.Algo.Game();
             //while (gameAlgorithms == null) { /* Wait while is created */ }
 
-            System.Console.WriteLine("FLORENCE: Algorithms");//TEST
+            System.Console.WriteLine("Server_Assembly: Algorithms");//TEST
         }
 
         public void Initialise(UInt16 numberOfCores)

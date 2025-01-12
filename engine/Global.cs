@@ -1,16 +1,30 @@
-﻿namespace Server_Assembly
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Server_Assembly
 {
     public class Global
     {
-        static private UInt16 numberOfCores;
+        static private ushort numberOfCores;
+        static private ushort numberOfPraises;
 
         public Global()
         {
             numberOfCores = 4;
+            numberOfPraises = 2;
         }
-        public int Get_NumCores()
+
+        public ushort Get_NumCores()
         {
             return numberOfCores;
+        }
+
+        public ushort Get_NumberOfPraises()
+        {
+            return numberOfPraises;
         }
     }
 }

@@ -1,17 +1,16 @@
-﻿using Server_Assembly.In;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Server_Assembly
+namespace Server_Assembly.Outputs
 {
     public class Output
     {
-        static private Server_Assembly.Out.Output_Control output_Control;
-        private Server_Assembly.In.Player player;
+        static private Server_Assembly.Outputs.Output_Control output_Control;
+        private Server_Assembly.game_Instance.Player player;
 
         static private int praiseEventId;
         static private Object praiseOutputBuffer_Subset;
@@ -71,30 +70,30 @@ namespace Server_Assembly
 
         public Output()
         {
-            player = new Server_Assembly.In.Player();
+            player = new Server_Assembly.game_Instance.Player();
 
             praiseEventId = new int();
             praiseEventId = 0;
 
             praiseOutputBuffer_Subset = null;
 
-            System.Console.WriteLine("FLORENCE: Output");
+            System.Console.WriteLine("Server_Assembly: Output");
         }
         public void Initalise_Graphics()
         {
-            using (var graphics = new Server_Assembly.Out.Graphics(
-                Framework.GetClient().GetData().GetSettings().GetGameWindowSettings(),
-                Framework.GetClient().GetData().GetSettings().GetNativeWindowSettings()
+            using (var graphics = new Server_Assembly.game_Instance.gFX.Graphics(
+                Server_Assembly.Framework.GetGameServer().GetData().GetSettings().GetGameWindowSettings(),
+                Server_Assembly.Framework.GetGameServer().GetData().GetSettings().GetNativeWindowSettings()
             ))
             {
-                Server_Assembly.Settings.Set_systemInitialised(true);
+                Server_Assembly.game_Instance.Settings.Set_systemInitialised(true);
                 graphics.Run();
             }
         }
 
         public void InitialiseControl()
         {
-            output_Control = new Server_Assembly.Out.Output_Control();
+            output_Control = new Server_Assembly.Outputs.Output_Control();
             while (output_Control == null) { /* Wait while is created */ }
         }
         public uint[] Get_Indices()
@@ -110,7 +109,7 @@ namespace Server_Assembly
         {
             return vertices;
         }
-        public Server_Assembly.In.Player GetPlayer()
+        public Server_Assembly.game_Instance.Player GetPlayer()
         {
             return player;
         }

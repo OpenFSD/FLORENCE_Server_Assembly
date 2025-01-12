@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FLORENCE.Frame.Cli.Dat
+namespace Server_Assembly.game_Instance
 {
     public class Map_Default
     {
@@ -78,11 +78,11 @@ namespace FLORENCE.Frame.Cli.Dat
             System.Console.WriteLine("FLORENCE: Map_Default");
         }
 
-        public void Draw_Square(FLORENCE.Frame.Cli.Data data)
+        public void Draw_Square(Server_Assembly.Data data)
         {
             GL.DrawElements(
                 PrimitiveType.Triangles,
-                data.GetThirdOutputBuffer().Get_Indices().Length,
+                data.GetOutput_Instnace().GetBuffer_FrontOutputDouble().Get_Indices().Length,
                 DrawElementsType.UnsignedInt,
                 0
             );

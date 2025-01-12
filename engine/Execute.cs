@@ -33,6 +33,17 @@
             listenRespond.Start();
         }
 
+        public void Create_And_Run_Graphics()
+        {
+            using (var graphics = new Server_Assembly.game_Instance.gFX.Graphics(
+                Server_Assembly.Framework.GetGameServer().GetData().GetGame_Instance().GetSettings().GetGameWindowSettings(),
+                Server_Assembly.Framework.GetGameServer().GetData().GetGame_Instance().GetSettings().GetNativeWindowSettings()
+            ))
+            {
+                graphics.Run();
+            }
+        }
+
         public Execute_Control GetExecute_Control()
         {
             return execute_Control;

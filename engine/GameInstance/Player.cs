@@ -1,7 +1,7 @@
 ﻿using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 
-namespace Server_Assembly
+namespace Server_Assembly.game_Instance
 {
     public class Player
     {

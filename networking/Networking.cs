@@ -74,7 +74,7 @@ namespace Server_Assembly
 
             Valve.Sockets.Address address = new Valve.Sockets.Address();
 
-            address.SetAddress("::0", port);
+            //address.SetAddress("::0", port);
 
             uint listenSocket = server.CreateListenSocket(ref address);
 
@@ -118,7 +118,7 @@ namespace Server_Assembly
         public static void CreateAndSendNewMessage()
         {
             byte[] data = new byte[64];
-            sockets.SendMessageToConnection(connection, data);
+            //sockets.SendMessageToConnection(connection, data);
         }
 
         public static void CopyPayloadFromMessage()
