@@ -42,12 +42,8 @@ namespace Server_Assembly
                             Florence.Stack_IO.Stack_InputPraise.Write_Start(0);
                             Networking.CopyPayloadFromMessage();
                             Framework.GetGameServer().GetData().Flip_InBufferToWrite();
-                            //Florence.IO_Buffers.Library.Push_Stack_InputPraises(
-
-                            //    Framework.GetGameServer().GetData().GetBuffer_BackInputDouble()
-                            //);
-                            //push to stack
-                            Florence.IO_Buffers.Library.Set_Ack_InputAction_Capture(true);
+                            Florence.IO_Buffers.Library.Push_Stack_InputPraises();
+                            //Florence.IO_Buffers.Library.Set_Ack_InputAction_Capture(true);
                             Florence.Stack_IO.Stack_InputPraise.Write_End(0);
                             Framework.GetGameServer().GetAlgorithms().GetIO_ListenRespond().GetIO_Control().SetFLAG_STATE_ioThread(true);
                         break;
