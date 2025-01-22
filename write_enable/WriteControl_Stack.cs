@@ -21,6 +21,9 @@ namespace Florence.Stack_IO
     public static class Stack_InputAction
     {
         [DllImport("WriteEnable_Stack_InputAction.dll", CharSet = CharSet.Unicode)]
+        public static extern Int16 Get_Length_Stack_Server_InputActions();
+
+        [DllImport("WriteEnable_Stack_InputAction.dll", CharSet = CharSet.Unicode)]
         public static extern void Write_End(ushort coreId);
 
         [DllImport("WriteEnable_Stack_InputAction.dll", CharSet = CharSet.Unicode)]
@@ -30,6 +33,9 @@ namespace Florence.Stack_IO
     [SuppressUnmanagedCodeSecurity]
     public static class Stack_InputPraise
     {
+        [DllImport("WriteEnable_Stack_InputPraise.dll", CharSet = CharSet.Unicode)]
+        public static extern Int16 Get_Length_Stack_Server_InputPraise();
+
         [DllImport("WriteEnable_Stack_InputPraise.dll", CharSet = CharSet.Unicode)]
         public static extern void Write_End(ushort coreId);
 
@@ -41,6 +47,9 @@ namespace Florence.Stack_IO
     public static class Stack_OutputPraise
     {
         [DllImport("WriteEnable_Stack_OutputPraise.dll", CharSet = CharSet.Unicode)]
+        public static extern Int16 Get_Length_Stack_Server_OutputPraise();
+
+        [DllImport("WriteEnable_Stack_OutputPraise.dll", CharSet = CharSet.Unicode)]
         public static extern void Write_End(ushort coreId);
 
         [DllImport("WriteEnable_Stack_OutputPraise.dll", CharSet = CharSet.Unicode)]
@@ -50,6 +59,9 @@ namespace Florence.Stack_IO
     [SuppressUnmanagedCodeSecurity]
     public static class Stack_OutputRecieve
     {
+        [DllImport("WriteEnable_Stack_OutputRecieve.dll", CharSet = CharSet.Unicode)]
+        public static extern Int16 Get_Length_Stack_Server_OutputRecieve();
+
         [DllImport("WriteEnable_Stack_OutputRecieve.dll", CharSet = CharSet.Unicode)]
         public static extern void Write_End(ushort coreId);
 

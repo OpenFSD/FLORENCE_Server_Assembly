@@ -5,7 +5,7 @@ namespace Server_Assembly
     public class Framework
     {
         static private Server_Assembly.Server game_server = null;
-        static private Server_Assembly.Networking networkingServer = null;
+        static private Valve.Networking networkingServer = null;
 
         public Framework()
         {
@@ -18,7 +18,7 @@ namespace Server_Assembly
             Florence.IO_Buffers.Library.Create_HostingServer();
             
             Valve.Sockets.Library.Initialize();
-            networkingServer = new Server_Assembly.Networking();
+            networkingServer = new Valve.Networking();
             while (networkingServer == null) { /* wait untill created */ }
 
             System.Console.WriteLine("Server_Assembly: Framework");//TEST
@@ -30,12 +30,7 @@ namespace Server_Assembly
         }
 
 
-        static public void Get_HostServer()
-        {
-            Florence.IO_Buffers.Library.Get_HostServer();
-        }
-        
-        static public Server_Assembly.Networking GetNetworkingServer()
+        static public Valve.Networking GetNetworkingServer()
         {
              return networkingServer;
         }

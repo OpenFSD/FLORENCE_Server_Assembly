@@ -11,9 +11,7 @@
         }
         public void Initialise()
         {
-            
-            //Server_Assembly.Framework.GetServer().GetAlgorithms().Initialise((ushort)Framework.GetServer().GetGlobal().Get_NumCores());
-  
+            Server_Assembly.Framework.GetGameServer().GetAlgorithms().Initialise((ushort)Framework.GetGameServer().GetGlobal().Get_NumCores());
         }
 
         public void Initialise_Control(
@@ -40,6 +38,7 @@
                 Server_Assembly.Framework.GetGameServer().GetData().GetGame_Instance().GetSettings().GetNativeWindowSettings()
             ))
             {
+                //TODO system system initionalised
                 graphics.Run();
             }
         }

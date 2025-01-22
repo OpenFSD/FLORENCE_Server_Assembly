@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Server_Assembly
+namespace Valve
 {
     public class Networking
     {

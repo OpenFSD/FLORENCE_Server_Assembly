@@ -22,21 +22,11 @@ namespace Florence.IO_Buffers
         public static extern void Create_HostingServer();
 
         [DllImport("Server_DLL.dll", CharSet = CharSet.Unicode)]
-        public static extern void Pop_Stack_OutputPraise();
+        public static extern void Pop_Stack_Server_OutputPraise();
 
         [DllImport("Server_DLL.dll", CharSet = CharSet.Unicode)]
-        public static extern void Push_Stack_InputPraises();
+        public static extern void Push_Stack_Server_InputPraises();
 
-        [DllImport("Server_DLL.dll", CharSet = CharSet.Unicode)]
-        public static extern bool Get_Ack_InputAction_Capture();
-
-    //get
-        [DllImport("Server_DLL.dll", CharSet = CharSet.Unicode)]
-        public static extern Server Get_HostServer();
-    
-    //set
-        [DllImport("Server_DLL.dll", CharSet = CharSet.Unicode)]
-        public static extern void Set_Ack_InputAction_Capture(bool value);
     }
     
 
