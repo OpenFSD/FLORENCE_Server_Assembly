@@ -32,7 +32,7 @@ namespace Server_Assembly
                 {
                     case true:
                     {
-                        Florence.Stack_IO.Stack_InputPraise.Write_Start(0);
+                        Server_Assembly.Framework.GetGameServer()->GetExecute()-> Florence.IO_Buffers.Library. Stack_InputPraise.Write_Start(0);
                         while (Florence.Stack_IO.Stack_InputPraise.Get_Length_Stack_Server_InputPraise() > 1)
                         {
                             Valve.Networking.CopyPayloadFromMessage();

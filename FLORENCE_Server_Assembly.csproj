@@ -8,12 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="Server_DLL">
-      <HintPath>bin\Server_DLL.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="OpenTK" Version="4.9.3" />
   </ItemGroup>
 
