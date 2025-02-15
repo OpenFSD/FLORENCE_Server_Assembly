@@ -1,4 +1,5 @@
 #pragma once
+#include "Framework_Server.h"
 #include "Input_Control.h"
 
 namespace Server_Library

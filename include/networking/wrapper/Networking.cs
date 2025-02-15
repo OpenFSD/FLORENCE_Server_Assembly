@@ -118,7 +118,7 @@ namespace Valve
         public static void CreateAndSendNewMessage()
         {
             byte[] data = new byte[64];
-            //sockets.SendMessageToConnection(connection, data);
+            //sockets.SendMessageToConnection(connection, data);//todo
         }
 
         public static void CopyPayloadFromMessage()
@@ -135,7 +135,7 @@ namespace Valve
                 temp_bool_array[i] = Convert.ToBoolean(buffer[i]);
                 switch_praiseEventId = Networking.BitArrayToInt(temp_bool_array, 16); ;
             }
-            Florence.IO_Buffers.Native.Set_PraiseEventId((ushort)switch_praiseEventId);
+            Florence.IO_Server.PraiseEvents.Set_PraiseEventId((ushort)switch_praiseEventId);
             switch (switch_praiseEventId)
             {
                 case 0:
@@ -145,7 +145,7 @@ namespace Valve
                         temp_bool_array[i] = Convert.ToBoolean(buffer[i]);
                     }
                     short temp1 = (short)Networking.BitArrayToInt(temp_bool_array, 16);
-                    Florence.IO_Buffers.Native.Set_Praise0_mousePos_X(temp1);
+                    Florence.IO_Server.PraiseEvents.Set_Praise0_mousePos_X(temp1);
 
                     temp_bool_array = new bool[16];
                     for (Int16 i = 32; i < 48; i++)
@@ -153,7 +153,7 @@ namespace Valve
                         temp_bool_array[i] = Convert.ToBoolean(buffer[i]);
                     }
                     short temp2 = (short)Networking.BitArrayToInt(temp_bool_array, 16);
-                    Florence.IO_Buffers.Native.Set_Praise0_mousePos_X(temp2);
+                    Florence.IO_Server.PraiseEvents.Set_Praise0_mousePos_X(temp2);
                     break;
 
                 case 1:

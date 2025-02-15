@@ -8,13 +8,16 @@ namespace Server_Library
         ListenRespond_Control();
         ~ListenRespond_Control();
 
-        bool Get_State_IO_Thread();
+        bool GetFlag_Acknowledge_Input_Capture();
+        bool GetFlag_IO_ThreadState();
 
+        void SetFlag_Acknowledge_Input_Capture(bool value);
         void SetFlag_IO_ThreadState(bool value);
 
     protected:
 
     private:
-        static bool state_IO_Thread;
+        static bool flag_Ack_InputAction_Capture;
+        static bool flag_IO_ThreadState;
     };
 }

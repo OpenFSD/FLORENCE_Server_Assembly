@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.11.35327.3
+VisualStudioVersion = 17.12.35707.178 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FLORENCE_Server_Assembly", "FLORENCE_Server_Assembly.csproj", "{95BF6DEF-435D-44B2-9BB7-549FEF3A36E4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLORENCE_Server_Assembly", "FLORENCE_Server_Assembly.csproj", "{36D6539F-6D43-4718-9D91-AD9117A11880}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{95BF6DEF-435D-44B2-9BB7-549FEF3A36E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{95BF6DEF-435D-44B2-9BB7-549FEF3A36E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{95BF6DEF-435D-44B2-9BB7-549FEF3A36E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{95BF6DEF-435D-44B2-9BB7-549FEF3A36E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36D6539F-6D43-4718-9D91-AD9117A11880}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36D6539F-6D43-4718-9D91-AD9117A11880}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36D6539F-6D43-4718-9D91-AD9117A11880}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36D6539F-6D43-4718-9D91-AD9117A11880}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {9E52CDB8-0EB7-461E-8EB0-2605427845BA}
 	EndGlobalSection
 EndGlobal

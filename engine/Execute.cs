@@ -3,11 +3,13 @@
     public class Execute
     {
         static private Server_Assembly.Execute_Control execute_Control = null;
-        private Thread listenRespond = null;
+        private Thread input_Listen = null;
+        private Thread output_Send = null;
 
         public Execute()
         {
-
+            input_Listen = null;
+            output_Send = null;
         }
         public void Initialise()
         {
@@ -23,12 +25,13 @@
             while (execute_Control == null) { /* Wait while is created */ }
         }
 
-        public void Initialise_Threads(
-            UInt16 numberOfCores
-        )
+        public void Initialise_Threads()
         {
-            listenRespond = new Thread(Server_Assembly.Framework.GetGameServer().GetAlgorithms().GetIO_ListenRespond().Thread_io_ListenRespond);
-            listenRespond.Start();
+            input_Listen = new Thread(Server_Assembly.Framework.GetGameServer().GetAlgorithms().GetIO_ListenRespond().Thread_Input_Listen);
+            input_Listen.Start();
+
+            output_Send = new Thread(Server_Assembly.Framework.GetGameServer().GetAlgorithms().GetIO_ListenRespond().Thread_Output_Send);
+            output_Send.Start();
         }
 
         public void Create_And_Run_Graphics()
