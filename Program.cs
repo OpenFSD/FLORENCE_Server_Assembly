@@ -6,11 +6,11 @@
 
         public static void Main(String[] args)
         {
-            System.Console.WriteLine("Server_Assembly START");//testbecnh
+            System.Console.WriteLine("Server_Assembly START");//TestBench
 
             serverAssembly = new Server_Assembly.Framework();
             while (serverAssembly == null) { /* wait untill created */ }
-            System.Console.WriteLine("created => Server_Assembly.Framework()");//testbecnh
+            System.Console.WriteLine("created => Server_Assembly.Framework()");//TestBench
         }
     }
 }

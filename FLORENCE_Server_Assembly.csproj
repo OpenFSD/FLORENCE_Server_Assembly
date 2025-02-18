@@ -12,4 +12,9 @@
     <PackageReference Include="SixLabors.ImageSharp" Version="3.1.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="include\server\concurrent_que\" />
+    <Folder Include="include\server\write_enable\" />
+  </ItemGroup>
+
 </Project>
