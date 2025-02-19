@@ -13,8 +13,8 @@ namespace Server_Assembly
 
         public Global()
         {
-            numberOfCores = 4;
-            numberOfPraises = 2;
+            numberOfCores = 2;
+            numberOfPraises = 3;
         }
 
         public ushort Get_NumCores()

@@ -5,10 +5,14 @@ namespace Server_Assembly
 {
     public class IO_ListenRespond
     {
+        static private byte listen_CoreId;
+        static private byte respond_CoreId;
         static private Server_Assembly.IO_ListenRespond_Control io_Control;
 
         public IO_ListenRespond()
         {
+            listen_CoreId = 255;
+            respond_CoreId = 255;
             io_Control = null;
         }
         public void InitialiseControl()
@@ -19,14 +23,20 @@ namespace Server_Assembly
 
         public void Thread_Input_Listen()
         {
+            listen_CoreId = 0;
             bool done_once = true;
-            while (Server_Assembly.Framework.GetGameServer().GetExecute().GetExecute_Control().GetFlag_ThreadInitialised(0) == true)
+            while (Server_Assembly.Framework.GetGameServer().GetExecute().GetExecute_Control().GetFlag_ThreadInitialised(listen_CoreId) == true)
             {
                 if (done_once == true)
                 {
-                    Server_Assembly.Framework.GetGameServer().GetExecute().GetExecute_Control().SetFlag_ThreadInitialised(0);
+                    Server_Assembly.Framework.GetGameServer().GetExecute().GetExecute_Control().SetFlag_ThreadInitialised(listen_CoreId);
                     done_once = false;
                 }
+            }
+            System.Console.WriteLine("Thread Initialised => Thread_Input_Listen()");//TestBench
+            while (Server_Assembly.Framework.GetGameServer().GetExecute().GetExecute_Control().GetFlag_Server_Shell_Initialised() == true)
+            {
+            
             }
             System.Console.WriteLine("Thread Started => Thread_Input_Listen()");//TestBench
             while (Server_Assembly.Framework.GetGameServer().GetExecute().GetExecute_Control().GetFlag_Server_Shell_Initialised() == false)
@@ -51,6 +61,7 @@ namespace Server_Assembly
 
         public void Thread_Output_Send()
         {
+            respond_CoreId = 1;
             bool done_once = true;
             while (Server_Assembly.Framework.GetGameServer().GetExecute().GetExecute_Control().GetFlag_ThreadInitialised(1) == true)
             {
@@ -59,6 +70,11 @@ namespace Server_Assembly
                     Server_Assembly.Framework.GetGameServer().GetExecute().GetExecute_Control().SetFlag_ThreadInitialised(1);
                     done_once = false;
                 }
+            }
+            System.Console.WriteLine("Thread Initialised => Thread_Output_Send()");//TestBench
+            while (Server_Assembly.Framework.GetGameServer().GetExecute().GetExecute_Control().GetFlag_Server_Shell_Initialised() == true)
+            {
+
             }
             System.Console.WriteLine("Thread Started => Thread_Output_Send()");//TestBench
             while (Server_Assembly.Framework.GetGameServer().GetExecute().GetExecute_Control().GetFlag_Server_Shell_Initialised() == false)
